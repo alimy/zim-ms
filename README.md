@@ -1,5 +1,5 @@
 # zim-ms(zim 后端微服务）
-来自实际项目基于[Tars](https://github.com/TarsCloud)和[go-mir](https://github.com/alimy/mir)开发微服务的简单代码组织结构，仅限学习参考用(不包括CI/CD)。
+基于[Tars](https://github.com/TarsCloud)和[go-mir](https://github.com/alimy/mir)开发微服务的简单代码组织结构，仅限学习参考用(不包括CI/CD)。
 
 ### 目录简介
 ```bash
