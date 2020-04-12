@@ -1,0 +1,2 @@
+## assets
+Contains some assets.
