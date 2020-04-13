@@ -1,8 +1,8 @@
 package servants
 
 import (
-	"gitbus.com/exlab/zim-ms/app/portal/sessions/internal/locator"
-	"gitbus.com/exlab/zim-ms/app/portal/sessions/internal/utils"
+	"gitbus.com/exlab/zim-ms/library/locator"
+	"gitbus.com/exlab/zim-ms/library/utils"
 
 	zsm "gitbus.com/exlab/zim-ms/app/portal/sessions/proto/gen/ZimSessionsManage"
 	zse "gitbus.com/exlab/zim-ms/app/portal/sessions/proto/gen/ZimSessionsMessage"

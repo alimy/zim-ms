@@ -15,7 +15,7 @@ import (
 )
 
 // Generate generate template project
-func Generate(dstPath string, style []string, name string, category string, target string, pkgName string) error {
+func Generate(dstPath string, style []string, category string, pkgName string, srvName string) error {
 	var (
 		err               error
 		filePath, dirPath string
@@ -27,13 +27,20 @@ func Generate(dstPath string, style []string, name string, category string, targ
 		return fmt.Errorf("not exist style(%s) template project", style)
 	}
 
+	names := strings.Split(srvName, ".")
+	if len(names) != 3 {
+		return fmt.Errorf("not availible full service name: %s", srvName)
+	}
+
 	slackNaming := naming.NewSnakeNamingStrategy()
-	fixedName := slackNaming.Naming(target)
+	fixedName := slackNaming.Naming(names[1])
 	ctx := &tmplCtx{
-		AppName:    name,
+		AppName:    names[0],
 		Category:   category,
-		Target:     target,
+		Target:     names[1],
+		ObjName:    names[2],
 		PkgName:    pkgName,
+		SrvName:    srvName,
 		PacketName: strings.ReplaceAll(fixedName, "_", "-"),
 	}
 

@@ -8,7 +8,7 @@ import (
 
 	zuq "gitbus.com/exlab/zim-ms/app/service/users-query/proto/gen/ZimUsersQuery"
 
-	_ "gitbus.com/exlab/zim-ms/app/service/users-query/internal/debug"
+	_ "gitbus.com/exlab/zim-ms/library/debug"
 )
 
 func init() {

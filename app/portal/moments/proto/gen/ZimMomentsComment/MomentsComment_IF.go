@@ -230,20 +230,20 @@ func (_obj *MomentsComment) TarsSetHashCode(code int64) {
 }
 func (_obj *MomentsComment) setMap(l int, res *requestf.ResponsePacket, ctx map[string]string, sts map[string]string) {
 	if l == 1 {
-		for k := range ctx {
+		for k, _ := range ctx {
 			delete(ctx, k)
 		}
 		for k, v := range res.Context {
 			ctx[k] = v
 		}
 	} else if l == 2 {
-		for k := range ctx {
+		for k, _ := range ctx {
 			delete(ctx, k)
 		}
 		for k, v := range res.Context {
 			ctx[k] = v
 		}
-		for k := range sts {
+		for k, _ := range sts {
 			delete(sts, k)
 		}
 		for k, v := range res.Status {

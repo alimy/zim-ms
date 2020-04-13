@@ -8,7 +8,7 @@ import (
 
 	zsm "gitbus.com/exlab/zim-ms/app/service/sessions-manage/proto/gen/ZimSessionsManage"
 
-	_ "gitbus.com/exlab/zim-ms/app/service/sessions-manage/internal/debug"
+	_ "gitbus.com/exlab/zim-ms/library/debug"
 )
 
 func init() {

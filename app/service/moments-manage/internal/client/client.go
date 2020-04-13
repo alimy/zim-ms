@@ -4,16 +4,16 @@ import (
 	"context"
 	"fmt"
 
-	"gitbus.com/exlab/zim-ss/app/service/moments-manage/internal/locator"
-	"gitbus.com/exlab/zim-ss/app/service/moments-manage/internal/utils"
+	"gitbus.com/exlab/zim-ms/library/locator"
+	"gitbus.com/exlab/zim-ms/library/utils"
 
-	zmm "gitbus.com/exlab/zim-ss/app/service/moments-manage/proto/gen/ZimMomentsManage"
+	zmm "gitbus.com/exlab/zim-ms/app/service/moments-manage/proto/gen/ZimMomentsManage"
 )
 
 func main() {
 	comm := locator.MyCommunicator()
 	obj := utils.ObjFrom("zim.MomentsManage.ManageObj", "tcp -h 127.0.0.1 -p 10028 -t 60000")
-	app := new(zmm.MomentManage)
+	app := new(zmm.MomentsManage)
 	comm.StringToProxy(obj, app)
 
 	var res int32

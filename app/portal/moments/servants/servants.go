@@ -1,8 +1,8 @@
 package servants
 
 import (
-	"gitbus.com/exlab/zim-ms/app/portal/moments/internal/locator"
-	"gitbus.com/exlab/zim-ms/app/portal/moments/internal/utils"
+	"gitbus.com/exlab/zim-ms/library/locator"
+	"gitbus.com/exlab/zim-ms/library/utils"
 
 	zmc "gitbus.com/exlab/zim-ms/app/portal/moments/proto/gen/ZimMomentsComment"
 	zmm "gitbus.com/exlab/zim-ms/app/portal/moments/proto/gen/ZimMomentsManage"

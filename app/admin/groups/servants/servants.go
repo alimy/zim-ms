@@ -1,8 +1,8 @@
 package servants
 
 import (
-	"gitbus.com/exlab/zim-ms/app/admin/groups/internal/locator"
-	"gitbus.com/exlab/zim-ms/app/admin/groups/internal/utils"
+	"gitbus.com/exlab/zim-ms/library/locator"
+	"gitbus.com/exlab/zim-ms/library/utils"
 
 	zua "gitbus.com/exlab/zim-ms/app/admin/groups/proto/gen/ZimUsersAuth"
 	zum "gitbus.com/exlab/zim-ms/app/admin/groups/proto/gen/ZimUsersManage"

@@ -1,14 +1,14 @@
 package main
 
 import (
+	"gitbus.com/exlab/zim-ms/app/service/moments-manage/servants"
+	"gitbus.com/exlab/zim-ms/app/service/moments-manage/version"
 	"gitbus.com/exlab/zim-ms/library/logus"
-	"gitbus.com/exlab/zim-ss/app/service/moments-manage/servants"
-	"gitbus.com/exlab/zim-ss/app/service/moments-manage/version"
 	"github.com/TarsCloud/TarsGo/tars"
 
-	zmm "gitbus.com/exlab/zim-ss/app/service/moments-manage/proto/gen/ZimMomentsManage"
+	zmm "gitbus.com/exlab/zim-ms/app/service/moments-manage/proto/gen/ZimMomentsManage"
 
-	_ "gitbus.com/exlab/zim-ss/app/service/moments-manage/internal/debug"
+	_ "gitbus.com/exlab/zim-ms/library/debug"
 )
 
 func init() {

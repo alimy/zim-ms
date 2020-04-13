@@ -16,10 +16,10 @@ var (
 var AppVer = semver.Version{
 	Major: 0,
 	Minor: 1,
-	Patch: 0,
+	Patch: 1,
 }
 
 // ShowInfo show application information
 func ShowInfo() {
-	logrus.Infof("start app(GitHash:%s BuildTime:%s AppVer:%s", GitHash, BuildTime, AppVer)
+	logrus.Infof("start app(GitHash:%s BuildTime:%s AppVer:%s)", GitHash, BuildTime, AppVer)
 }

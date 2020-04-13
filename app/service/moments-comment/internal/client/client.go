@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	"gitbus.com/exlab/zim-ss/app/service/moments-manage/internal/locator"
-	"gitbus.com/exlab/zim-ss/app/service/moments-manage/internal/utils"
+	"gitbus.com/exlab/zim-ms/library/locator"
+	"gitbus.com/exlab/zim-ms/library/utils"
 
-	zmc "gitbus.com/exlab/zim-ss/app/service/moments-manage/proto/gen/ZimMomentsComment"
+	zmc "gitbus.com/exlab/zim-ms/app/service/moments-manage/proto/gen/ZimMomentsComment"
 )
 
 func main() {

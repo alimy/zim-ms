@@ -5,17 +5,19 @@ import (
 	"gitbus.com/exlab/zim-ms/library/logus"
 	"{{ .PkgName }}/mirc/gen/api"
 	"{{ .PkgName }}/servants"
+	"{{ .PkgName }}/version"
 	"github.com/gin-gonic/gin"
 
-	_ "{{ .PkgName }}/internal/debug"
+	_ "gitbus.com/exlab/zim-ms/library/debug"
 )
 
 func init() {
 	logus.SetLevel(logus.LevelDebug)
 }
 
-
 func main() {
+	version.ShowInfo()
+
 	e := gin.Default()
 	registerServants(e)
 
@@ -23,7 +25,7 @@ func main() {
 	mux.HandleFunc("/", e.ServeHTTP)
 
 	cfg := tars.GetServerConfig()
-	obj := cfg.App + "." + cfg.Server + ".PortalObj"
+	obj := cfg.App + "." + cfg.Server + ".{{ .ObjName }}"
 	tars.AddHttpServant(mux, obj)
 	tars.Run()
 }

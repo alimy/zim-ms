@@ -10,7 +10,7 @@ import (
 	"github.com/TarsCloud/TarsGo/tars"
 	"github.com/gin-gonic/gin"
 
-	_ "gitbus.com/exlab/zim-ms/app/portal/sessions/internal/debug"
+	_ "gitbus.com/exlab/zim-ms/library/debug"
 )
 
 func init() {

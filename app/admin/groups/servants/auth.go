@@ -3,15 +3,16 @@ package servants
 import (
 	"strconv"
 
-	"gitbus.com/exlab/zim-ms/app/admin/groups/internal/errorx"
 	"gitbus.com/exlab/zim-ms/app/admin/groups/mirc/gen/api/admin/groups/auth"
+	"gitbus.com/exlab/zim-ms/library/dr"
+	"gitbus.com/exlab/zim-ms/library/errorx"
 	"github.com/gin-gonic/gin"
 
 	zua "gitbus.com/exlab/zim-ms/app/admin/groups/proto/gen/ZimUsersAuth"
 )
 
 type authSrv struct {
-	baseServant
+	dr.BaseServant
 	auth *zua.UsersAuth
 }
 
@@ -30,13 +31,13 @@ func (s *authSrv) Add(c *gin.Context) {
 		rh = int32(v)
 	}
 	if err1 != nil || err2 != nil {
-		s.abort(c, errorx.ErrParamNotValide)
+		s.Abort(c, errorx.ErrParamNotValide)
 		return
 	}
 	if _, err := s.auth.Add(lh, rh, &res); err == nil {
-		s.success(c, res)
+		s.Success(c, res)
 	} else {
-		s.failure(c, err)
+		s.Failure(c, err)
 	}
 }
 
@@ -55,20 +56,20 @@ func (s *authSrv) Sub(c *gin.Context) {
 		rh = int32(v)
 	}
 	if err1 != nil || err2 != nil {
-		s.abort(c, errorx.ErrParamNotValide)
+		s.Abort(c, errorx.ErrParamNotValide)
 		return
 	}
 	if _, err := s.auth.Sub(lh, rh, &res); err == nil {
-		s.success(c, res)
+		s.Success(c, res)
 	} else {
-		s.failure(c, err)
+		s.Failure(c, err)
 	}
 }
 
 // NewUsersAuth return a UsersAuth implement object
 func NewUsersAuth() auth.UsersAuth {
 	return &authSrv{
-		baseServant: newBaseServant(),
+		BaseServant: dr.NewSimpleServant(),
 		auth:        newUsersAuthApp(),
 	}
 }

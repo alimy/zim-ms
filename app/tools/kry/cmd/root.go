@@ -12,7 +12,7 @@ import (
 
 var (
 	rootCmd = &cobra.Command{
-		Use:   "kr",
+		Use:   "kry",
 		Short: "develop help toolkit",
 		Long:  `develop help toolkit`,
 	}

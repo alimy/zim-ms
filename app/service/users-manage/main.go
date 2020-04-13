@@ -8,7 +8,7 @@ import (
 
 	zum "gitbus.com/exlab/zim-ms/app/service/users-manage/proto/gen/ZimUsersManage"
 
-	_ "gitbus.com/exlab/zim-ms/app/service/users-manage/internal/debug"
+	_ "gitbus.com/exlab/zim-ms/library/debug"
 )
 
 func init() {

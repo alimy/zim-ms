@@ -4,9 +4,10 @@ import (
 	"github.com/TarsCloud/TarsGo/tars"
 	"gitbus.com/exlab/zim-ms/library/logus"
 	"{{ .PkgName }}/proto/gen/calculator"
+	"{{ .PkgName }}/version"
 	"{{ .PkgName }}/servants"
 
-	_ "{{ .PkgName }}/internal/debug"
+	_ "gitbus.com/exlab/zim-ms/library/debug"
 )
 
 func init() {
@@ -14,10 +15,12 @@ func init() {
 }
 
 func main() {
+	version.ShowInfo()
+
 	app := new(calculator.Calculator)
 	srv := servants.NewCalculator()
 	cfg := tars.GetServerConfig()
-	obj := cfg.App + "." + cfg.Server + ".CalculatorObj"
+	obj := cfg.App + "." + cfg.Server + ".{{ .ObjName }}"
 	app.AddServantWithContext(srv, obj)
 	tars.Run()
 }

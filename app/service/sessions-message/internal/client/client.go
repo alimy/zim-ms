@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"gitbus.com/exlab/zim-ms/app/service/sessions-message/internal/locator"
-	"gitbus.com/exlab/zim-ms/app/service/sessions-message/internal/utils"
+	"gitbus.com/exlab/zim-ms/library/locator"
+	"gitbus.com/exlab/zim-ms/library/utils"
 
 	zsm "gitbus.com/exlab/zim-ms/app/service/sessions-message/proto/gen/ZimSessionsMessage"
 )

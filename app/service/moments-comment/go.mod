@@ -1,4 +1,4 @@
-module gitbus.com/exlab/zim-ss/app/service/moments-manage
+module gitbus.com/exlab/zim-ms/app/service/moments-manage
 
 go 1.12
 

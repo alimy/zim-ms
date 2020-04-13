@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"gitbus.com/exlab/zim-ms/app/service/users-auth/internal/locator"
-	"gitbus.com/exlab/zim-ms/app/service/users-auth/internal/utils"
+	"gitbus.com/exlab/zim-ms/library/locator"
+	"gitbus.com/exlab/zim-ms/library/utils"
 
 	zua "gitbus.com/exlab/zim-ms/app/service/users-auth/proto/gen/ZimUsersAuth"
 )

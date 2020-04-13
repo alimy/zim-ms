@@ -16,7 +16,9 @@ type tmplCtx struct {
 	AppName    string
 	Category   string
 	Target     string
+	ObjName    string
 	PkgName    string
+	SrvName    string
 	PacketName string
 }
 

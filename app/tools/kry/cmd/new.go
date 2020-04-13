@@ -16,8 +16,7 @@ import (
 var (
 	dstPath  string
 	category string
-	target   string
-	name     string
+	srvName  string
 	pkgName  string
 	style    []string
 )
@@ -32,9 +31,8 @@ func init() {
 
 	// parse flags for agentCmd
 	newCmd.Flags().StringVarP(&dstPath, "dst", "d", ".", "genereted destination target directory")
-	newCmd.Flags().StringVarP(&name, "name", "n", "zim", "custom service app name")
+	newCmd.Flags().StringVarP(&srvName, "name", "n", "kry.calculator.CalculatorObj", "custom full service name")
 	newCmd.Flags().StringVarP(&category, "category", "c", "service", "custom service category")
-	newCmd.Flags().StringVarP(&target, "target", "t", "calculator", "custom target service name")
 	newCmd.Flags().StringVarP(&pkgName, "pkg", "p", "gitbus.com/exlab/zim-ss/app/service/calculator", "project's package name")
 	newCmd.Flags().StringSliceVarP(&style, "style", "s", []string{"tars"}, "generated engine type style:[{tars[,mir]]")
 
@@ -60,7 +58,7 @@ func newRun(_cmd *cobra.Command, _args []string) {
 			log.Fatal(err)
 		}
 	}
-	if err = generator.Generate(path, style, name, category, target, pkgName); err != nil {
+	if err = generator.Generate(path, style, category, pkgName, srvName); err != nil {
 		log.Fatal(err)
 	}
 }

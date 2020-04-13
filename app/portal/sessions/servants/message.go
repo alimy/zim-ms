@@ -3,15 +3,16 @@ package servants
 import (
 	"strconv"
 
-	"gitbus.com/exlab/zim-ms/app/portal/sessions/internal/errorx"
 	"gitbus.com/exlab/zim-ms/app/portal/sessions/mirc/gen/api/sessions/message"
+	"gitbus.com/exlab/zim-ms/library/dr"
+	"gitbus.com/exlab/zim-ms/library/errorx"
 	"github.com/gin-gonic/gin"
 
 	zsm "gitbus.com/exlab/zim-ms/app/portal/sessions/proto/gen/ZimSessionsMessage"
 )
 
 type messageSrv struct {
-	baseServant
+	dr.BaseServant
 	message *zsm.SessionsMessage
 }
 
@@ -30,13 +31,13 @@ func (s *messageSrv) Add(c *gin.Context) {
 		rh = int32(v)
 	}
 	if err1 != nil || err2 != nil {
-		s.abort(c, errorx.ErrParamNotValide)
+		s.Abort(c, errorx.ErrParamNotValide)
 		return
 	}
 	if _, err := s.message.Add(lh, rh, &res); err == nil {
-		s.success(c, res)
+		s.Success(c, res)
 	} else {
-		s.failure(c, err)
+		s.Failure(c, err)
 	}
 }
 
@@ -55,20 +56,20 @@ func (s *messageSrv) Sub(c *gin.Context) {
 		rh = int32(v)
 	}
 	if err1 != nil || err2 != nil {
-		s.abort(c, errorx.ErrParamNotValide)
+		s.Abort(c, errorx.ErrParamNotValide)
 		return
 	}
 	if _, err := s.message.Sub(lh, rh, &res); err == nil {
-		s.success(c, res)
+		s.Success(c, res)
 	} else {
-		s.failure(c, err)
+		s.Failure(c, err)
 	}
 }
 
 // NewSessionsMessage return a SessionsMessage implement object
 func NewSessionsMessage() message.SessionsMessage {
 	return &messageSrv{
-		baseServant: newBaseServant(),
+		BaseServant: dr.NewSimpleServant(),
 		message:     newSessionsMessageApp(),
 	}
 }

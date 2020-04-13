@@ -3,15 +3,16 @@ package servants
 import (
 	"strconv"
 
-	"gitbus.com/exlab/zim-ms/app/portal/moments/internal/errorx"
 	"gitbus.com/exlab/zim-ms/app/portal/moments/mirc/gen/api/moments/query"
+	"gitbus.com/exlab/zim-ms/library/dr"
+	"gitbus.com/exlab/zim-ms/library/errorx"
 	"github.com/gin-gonic/gin"
 
 	zmq "gitbus.com/exlab/zim-ms/app/portal/moments/proto/gen/ZimMomentsQuery"
 )
 
 type querySrv struct {
-	baseServant
+	dr.BaseServant
 	query *zmq.MomentsQuery
 }
 
@@ -30,13 +31,13 @@ func (s *querySrv) Add(c *gin.Context) {
 		rh = int32(v)
 	}
 	if err1 != nil || err2 != nil {
-		s.abort(c, errorx.ErrParamNotValide)
+		s.Abort(c, errorx.ErrParamNotValide)
 		return
 	}
 	if _, err := s.query.Add(lh, rh, &res); err == nil {
-		s.success(c, res)
+		s.Success(c, res)
 	} else {
-		s.failure(c, err)
+		s.Failure(c, err)
 	}
 }
 
@@ -55,20 +56,20 @@ func (s *querySrv) Sub(c *gin.Context) {
 		rh = int32(v)
 	}
 	if err1 != nil || err2 != nil {
-		s.abort(c, errorx.ErrParamNotValide)
+		s.Abort(c, errorx.ErrParamNotValide)
 		return
 	}
 	if _, err := s.query.Sub(lh, rh, &res); err == nil {
-		s.success(c, res)
+		s.Success(c, res)
 	} else {
-		s.failure(c, err)
+		s.Failure(c, err)
 	}
 }
 
 // NewMomentsQuery return a MomentsQuery implement object
 func NewMomentsQuery() query.MomentsQuery {
 	return &querySrv{
-		baseServant: newBaseServant(),
+		BaseServant: dr.NewSimpleServant(),
 		query:       newMomentsQueryApp(),
 	}
 }

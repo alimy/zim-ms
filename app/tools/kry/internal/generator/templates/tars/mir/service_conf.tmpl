@@ -1,23 +1,23 @@
 <tars>
         <application>
                 <server>
-                        app=kry
-                        server=portal
+                        app={{ .AppName }}
+                        server={{ .Target }}
                         local=tcp -h 127.0.0.1 -p 10037 -t 30000
 						logpath=/tmp
-                        <kry.portal.PortalObjAdapter>
+                        <{{ .SrvName }}Adapter>
                                 allow
                                 endpoint=tcp -h 127.0.0.1 -p 10038 -t 60000
-                                handlegroup=kry.portal.PortalObjAdapter
+                                handlegroup={{ .SrvName }}Adapter
                                 maxconns=200000
                                 protocol=tars
                                 queuecap=10000
                                 queuetimeout=60000
-                                servant=kry.portal.PortalObj
+                                servant={{ .SrvName }}
                                 shmcap=0
                                 shmkey=0
                                 threads=1
-                        </kry.portal.PortalObjAdapter>
+                        </{{ .SrvName }}Adapter>
                 </server>
         </application>
 </tars>
