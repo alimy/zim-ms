@@ -1,20 +1,23 @@
 # zim-ms(zim 后端微服务）
 [![sourcegraph](https://img.shields.io/badge/view%20on-Sourcegraph-brightgreen.svg?logo=sourcegraph)](https://sourcegraph.com/github.com/alimy/zim-ms)
 
-基于[Tars](https://github.com/TarsCloud)和[go-mir](https://github.com/alimy/mir)开发微服务的简单代码组织结构，仅限学习参考用(不包括CI/CD)。
+基于[Tars](https://github.com/TarsCloud)和[go-mir](https://github.com/alimy/mir)开发微服务的简单代码组织结构，仅限学习参考用(不包括CI/CD)。该项目是最近对一个单体项目基于[Tars](https://github.com/TarsCloud)微服务改造形成的代码框架(**不包含具体业务代码**)，全手工从零到有撸出来的，算是对[Tars](https://github.com/TarsCloud)和[go-mir](https://github.com/alimy/mir)结合开发应用的很好实践。
 
 ### 目录简介
 ```bash
 % tree -L 3 .
 ├── app                          # 包含所有应用 
 │   ├── admin                    # 包含内部运维管理相关的服务
+│   │   ├── httpdns              # httpdns相关运维操作接口
 │   │   ├── groups               # 群组运维相关服务
 │   │   └── users                # 账号中心相关服务
 │   ├── portal                   # 包含对外导出的服务(聚合服务，api网关对接的服务)
+│   │   ├── httpdns              # httpdns相关对外导出查询接口
 │   │   ├── moments              # 朋友圈相关的接口服务
 │   │   ├── sessions             # 聊天会话相关的接口服务
 │   │   └── users                # 用户关系(用户信息、群组信息、好友列表、群成员列表等)相关的接口服务
 │   ├── service                  # 包含业务功能微服务(限内网访问)
+│   │   ├── httpdns              # httpdns相关内部操作接口
 │   │   ├── moments-comment      # 朋友圈条目评论(点评/点赞 等)
 │   │   ├── moments-manage       # 朋友圈内容管理(添加/删除/访问控制 等）
 │   │   ├── moments-query        # 朋友圈条目检索服务
@@ -34,6 +37,14 @@
 │       ├── portal               # 外部导出服务的发布包
 │       └── service              # 内部业务功能微服务的发布包
 └── library                      # 公共辅助lib库
+    ├── debug                    # 调试/调优相关
+    ├── dr                       # http请求/响应处理相关
+    ├── errorx                   # 错误处理相关
+    ├── locator                  # tars客户端处理相关
+    ├── logus                    # log打印相关
+    ├── utils                    # 其他杂项
+    └── xstr                     # 字符串处理相关
+
 
 ```
 
@@ -51,19 +62,19 @@
 * 创建内部微服务
 ```bash
 % cd app/service # 所有内部业务的微服务都在这个目录创建，使用如下命令创建模版代码
-% kry new -d users-query -s tars -p gitbus.com/exlab/zim-ss/app/service/users-query -n zim -c service -t UsersQuery
+% kry new -d users-query -s tars -c service -p gitbus.com/exlab/zim-ms/app/service/users-query -n zim.UsersQuery.QueryObj
 ```
 
 * 创建对外导出服务(汇聚服务，对接api网关)
 ```bash
 % cd app/portal # 所有外部导出的服务接口都在这个目录创建，使用如下命令创建模版代码
-% kry new -d users -s tars -s mir -p gitbus.com/exlab/zim-ss/app/portal/users -n zim -c portal -t UsersPortal
+% kry new -d users -s tars -s mir -c portal -p gitbus.com/exlab/zim-ms/app/portal/users -n zim.UsersPortal.PortalObj
 ```
 
 * 创建内部管理服务
 ```bash
 % cd app/admin # 所有内部运维管理相关的服务接口都在这个目录创建，使用如下命令创建模版代码
-% kry new -d groups -s tars -s mir -p gitbus.com/exlab/zim-ss/app/admin/groups -n zim -c admin -t AdminGroups
+% kry new -d groups -s tars -s mir -c admin -p gitbus.com/exlab/zim-ms/app/admin/groups -n zim.AdminGroups.GroupsObj
 ```
 
 * 微服务打包，比如app/service/users-query
