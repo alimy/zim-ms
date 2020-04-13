@@ -1,7 +1,7 @@
 # zim-ms(zim 后端微服务）
 [![sourcegraph](https://img.shields.io/badge/view%20on-Sourcegraph-brightgreen.svg?logo=sourcegraph)](https://sourcegraph.com/github.com/alimy/zim-ms)
 
-基于[Tars](https://github.com/TarsCloud)和[go-mir](https://github.com/alimy/mir)开发微服务的简单代码组织结构，仅限学习参考用(不包括CI/CD)。该项目是最近对一个单体项目基于[Tars](https://github.com/TarsCloud)微服务改造形成的代码框架(**不包含具体业务代码**)，全手工从零到有撸出来的，算是对[Tars](https://github.com/TarsCloud)和[go-mir](https://github.com/alimy/mir)结合开发应用的很好实践。
+该项目是最近对一个单体项目基于[Tars](https://github.com/TarsCloud)微服务改造形成的代码框架(**不包含具体业务代码**)，全手工从零到有撸出来的，算是对[Tars](https://github.com/TarsCloud)和[go-mir](https://github.com/alimy/mir)结合开发应用的很好实践。
 
 ### 目录简介
 ```bash
