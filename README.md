@@ -29,8 +29,9 @@
 │   │   └── users-query          # 用户信息检索接口服务
 │   └── tools                    # 辅助工具库
 │      └── kry                   # 微服务模版代码生成工具
-├── assets                       # 包含一些杂项资源
-│   └── paw                      # paw api接口调试工具
+├── assets                       # 包含一些杂项资源，比如文档、图片等
+│   └── paw                      # paw api接口调试工程文件
+│   └── pictures                 # 快照截图存放处
 ├── build                        # 包含一些构建脚本
 │   └── release                  # 包含tars部署用的发布包
 │       ├── admin                # 内部管理相关服务的发布包
