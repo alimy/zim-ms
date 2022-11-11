@@ -1,0 +1,23 @@
+go 1.18
+
+use (
+	./app/admin/groups
+	./app/admin/httpdns
+	./app/admin/users
+	./app/portal/httpdns
+	./app/portal/moments
+	./app/portal/sessions
+	./app/portal/users
+	./app/service/httpdns
+	./app/service/moments-comment
+	./app/service/moments-manage
+	./app/service/moments-query
+	./app/service/sessions-manage
+	./app/service/sessions-message
+	./app/service/sessions-query
+	./app/service/users-auth
+	./app/service/users-manage
+	./app/service/users-query
+	./app/tools/kry
+	./library
+)

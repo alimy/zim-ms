@@ -7,7 +7,7 @@ import (
 
 // BaseServant base servant interface
 type BaseServant interface {
-	Success(*gin.Context, interface{})
+	Success(*gin.Context, any)
 	Abort(*gin.Context, errorx.HttpError)
 	Failure(*gin.Context, error)
 }

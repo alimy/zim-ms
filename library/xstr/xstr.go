@@ -9,7 +9,7 @@ import (
 
 var (
 	bfPool = sync.Pool{
-		New: func() interface{} {
+		New: func() any {
 			return bytes.NewBuffer([]byte{})
 		},
 	}

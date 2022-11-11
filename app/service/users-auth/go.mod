@@ -1,6 +1,6 @@
 module gitbus.com/exlab/zim-ms/app/service/users-auth
 
-go 1.12
+go 1.18
 
 require (
 	gitbus.com/exlab/zim-ms/library v0.0.1

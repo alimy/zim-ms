@@ -271,7 +271,7 @@ type _impCalculatorWithContext interface {
 	Sub(ctx context.Context, Lh int32, Rh int32, Res *int32) (ret int32, err error)
 }
 
-func Add(ctx context.Context, _val interface{}, _os *codec.Buffer, _is *codec.Reader, withContext bool) (err error) {
+func Add(ctx context.Context, _val any, _os *codec.Buffer, _is *codec.Reader, withContext bool) (err error) {
 	var length int32
 	var have bool
 	var ty byte
@@ -320,7 +320,7 @@ func Add(ctx context.Context, _val interface{}, _os *codec.Buffer, _is *codec.Re
 	_ = ty
 	return nil
 }
-func Sub(ctx context.Context, _val interface{}, _os *codec.Buffer, _is *codec.Reader, withContext bool) (err error) {
+func Sub(ctx context.Context, _val any, _os *codec.Buffer, _is *codec.Reader, withContext bool) (err error) {
 	var length int32
 	var have bool
 	var ty byte
@@ -371,7 +371,7 @@ func Sub(ctx context.Context, _val interface{}, _os *codec.Buffer, _is *codec.Re
 }
 
 //Dispatch is used to call the server side implemnet for the method defined in the tars file. withContext shows using context or not.
-func (_obj *Calculator) Dispatch(ctx context.Context, _val interface{}, req *requestf.RequestPacket, resp *requestf.ResponsePacket, withContext bool) (err error) {
+func (_obj *Calculator) Dispatch(ctx context.Context, _val any, req *requestf.RequestPacket, resp *requestf.ResponsePacket, withContext bool) (err error) {
 	_is := codec.NewReader(tools.Int8ToByte(req.SBuffer))
 	_os := codec.NewBuffer()
 	switch req.SFuncName {

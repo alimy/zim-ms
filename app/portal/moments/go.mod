@@ -1,6 +1,6 @@
 module gitbus.com/exlab/zim-ms/app/portal/moments
 
-go 1.12
+go 1.18
 
 require (
 	gitbus.com/exlab/zim-ms/library v0.0.1

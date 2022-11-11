@@ -1,6 +1,6 @@
 module gitbus.com/exlab/zim-ms/app/service/sessions-query
 
-go 1.12
+go 1.18
 
 require (
 	github.com/TarsCloud/TarsGo v1.1.1

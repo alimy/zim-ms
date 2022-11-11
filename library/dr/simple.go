@@ -12,12 +12,12 @@ type simpleServant struct {
 }
 
 type response struct {
-	Code   int         `json:"code"`
-	Msg    string      `json:"msg"`
-	Result interface{} `json:"result,omitempty"`
+	Code   int    `json:"code"`
+	Msg    string `json:"msg"`
+	Result any    `json:"result,omitempty"`
 }
 
-func (s *simpleServant) Success(c *gin.Context, data interface{}) {
+func (s *simpleServant) Success(c *gin.Context, data any) {
 	resp := &response{
 		Code:   http.StatusOK,
 		Msg:    "success",
